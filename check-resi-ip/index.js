@@ -7,6 +7,7 @@ const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
+process.title = 'Check the IP of Your Proxies! | Made by: Oliver Hicks';
 
 
 function delay(time) {
@@ -40,12 +41,17 @@ if (!fs.existsSync(_path)) {
 
 const testProxies = async () => {
 
+
         // setting up the proxy:
 
 let proxies = fs.readFileSync('proxies.txt').toString().split("\r\n");
 
 
 for (let i = 0; i < proxies.length; i++) {
+
+let untested = proxies.length - i;
+
+process.title = `Check the IP of Your Proxies! | ${proxies.length} Proxies Loaded | Tested: ${i} | Untested: ${untested}`;
     
         let _proxy = proxies[i];
     
@@ -57,7 +63,7 @@ for (let i = 0; i < proxies.length; i++) {
 
         await delay(1000);
     
-        console.log(clc.cyan('Proxy has been set to: ' + proxy));
+        console.log(clc.cyan('Proxy has been set to: ' + _proxy));
     
         // setting up the browser:
 
@@ -99,6 +105,11 @@ for (let i = 0; i < proxies.length; i++) {
     }
 }
 
+const start = () => {
+
+
+
+
 inquirer.prompt(homepage).then(answers => {
 
     if (answers.homepage === 'Start') {
@@ -115,3 +126,6 @@ inquirer.prompt(homepage).then(answers => {
     }
 
 });
+}
+
+start();
