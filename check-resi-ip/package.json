@@ -1,0 +1,33 @@
+{
+  "name": "check-resi-ip",
+  "version": "1.0.0",
+  "description": "checks the IP addresses of resi proxies from the proxies.txt file",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "oliver hicks",
+  "bin": {
+    "check-resi-ip": "index.js"
+  },
+  "pkg": {
+    "scripts": "index.js",
+    "targets": [
+      "node14-win-x64"
+    ],
+    "assets": [
+      "node_modules",
+      "chrome-win/**/*"
+    ]
+  },
+  "license": "ISC",
+  "dependencies": {
+    "cli-color": "^2.0.3",
+    "inquirer": "^8.0.0",
+    "pkg": "^5.8.1",
+    "puppeteer": "^19.10.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "puppeteer-page-proxy": "^1.3.0"
+  }
+}
