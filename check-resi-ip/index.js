@@ -71,7 +71,6 @@ process.title = `Check the IP of Your Proxies! | ${proxies.length} Proxies Loade
 
         const browser = await puppeteer.launch({
             headless: true,
-            executablePath: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
             defaultViewport: null,
             args: [
                 "--disable-blink-features=AutomationControlled"
@@ -91,7 +90,7 @@ process.title = `Check the IP of Your Proxies! | ${proxies.length} Proxies Loade
         
         console.log(clc.cyan(ipAddress));
 
-        await delay(1000);
+        await delay(500);
 
         await browser.close();
 
@@ -99,7 +98,6 @@ process.title = `Check the IP of Your Proxies! | ${proxies.length} Proxies Loade
 
         console.log(clc.red('Error: ' + error));
 
-        await delay(10000);
     }
 
     }
